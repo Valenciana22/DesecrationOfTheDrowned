@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SoldierScript : MonoBehaviour
 {
+    
     [Header("Stats")]
     public int health = 100;
     public int damage = 1;  
@@ -14,6 +15,9 @@ public class SoldierScript : MonoBehaviour
     Maybe like... on button press, release a projectile and on trigger randomize damage value. But damage needs
     to come from the character, not the projectile itself
     */
+
+    [Header("Projectile")]
+    public GameObject BulletPrefab;
 
     [Header("Movement")]
     public float speed = 1.0f;
@@ -29,6 +33,15 @@ public class SoldierScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKey(KeyCode.R)){
+            //Shoots a bullet horizontally to the right
+            //Debug.Log("You are trying to shoot");
+            //GenerateBullets();
+            Vector2 currentPosition = new Vector2(transform.position.x + 1,transform.position.y);
+            GameObject newBullet = Instantiate(BulletPrefab,currentPosition,Quaternion.identity);
+            Destroy(newBullet,2);
+            
+        }
         //GetComponent<Transform>().position += new Vector3(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"),0) * speed * Time.deltaTime;
     }
 
@@ -53,6 +66,7 @@ public class SoldierScript : MonoBehaviour
             Debug.Log("You got hit!");
             //Maybe you can grab a parameter from the enemy to see how much damage it deals instead of hardcoding it 
             health -= 5; 
+            //health -= GetComponent<DrownedSoldierScript>().damage; //Damage will be able to scale this way
 
             //SceneManager.LoadScene("MainMenu");
         }
@@ -60,4 +74,20 @@ public class SoldierScript : MonoBehaviour
         
 
     }
+
+    /*void GenerateBullets(){
+
+        StartCoroutine(GenerateBulletsRoutine());
+    
+        IEnumerator GenerateBulletsRoutine(){
+            Debug.Log("GENERATION START!");
+            //while(true){ //goes forever
+                Vector2 currentPosition = new Vector2(transform.position.x,transform.position.y); //random position
+                //yield return new WaitForSeconds(0.5f);
+                GameObject newBullet = Instantiate(BulletPrefab,currentPosition,Quaternion.identity);
+                Destroy(newBullet,1);
+            //}
+
+        }
+    } */
 }

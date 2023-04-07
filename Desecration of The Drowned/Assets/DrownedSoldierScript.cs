@@ -22,4 +22,23 @@ public class DrownedSoldierScript : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+
+       /* if(other.tag == "Sun"){
+            score += 1;
+            points.text = score.ToString();
+            transform.localScale *= 1.025f;
+            other.GetComponent<SunCollapse>().Consume();
+            
+        } */
+        if(other.tag == "Bullet"){
+            Debug.Log("Enemy just got hit got hit!");
+            //Maybe you can grab a parameter from the bullet to see how much damage it deals instead of hardcoding it 
+            health -= 5;
+             //health -= GetComponent<SoldierScript>().damage; //Damage will be able to scale this way 
+
+            //SceneManager.LoadScene("MainMenu");
+        }
+    }
 }
