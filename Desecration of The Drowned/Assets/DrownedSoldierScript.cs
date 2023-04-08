@@ -37,6 +37,9 @@ public class DrownedSoldierScript : MonoBehaviour
             //Maybe you can grab a parameter from the bullet to see how much damage it deals instead of hardcoding it 
             health -= 5;
              //health -= GetComponent<SoldierScript>().damage; //Damage will be able to scale this way 
+             if(health <= 0){
+                Destroy(gameObject);
+             }
 
             //SceneManager.LoadScene("MainMenu");
         }
