@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class SoldierScript : MonoBehaviour
 {
-    
+    public static SoldierScript singletonCheck;
+
     [Header("Stats")]
     public int health = 100;
     public int damage = 1;  
@@ -27,7 +28,18 @@ public class SoldierScript : MonoBehaviour
     void Start()
     {
         //Debug.Log("Hello World!");
+
+        DontDestroyOnLoad(this.gameObject);
+
+        if(singletonCheck == null){
+            singletonCheck = this;
+        } else {
+            Destroy(this.gameObject);
+        }
+
         rb2d = GetComponent<Rigidbody2D>(); //This is how rigidbody get instantiated and movement is allowed
+
+
     }
 
     // Update is called once per frame

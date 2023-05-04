@@ -395,7 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57d5fd84de6653842beba9a33f5e7cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 750
+  health: 250
   drownedPrefab: {fileID: 9194771468783773427, guid: 6ea95797ceb7dd943b0cbf842de6f3db, type: 3}
 --- !u!61 &994649517
 BoxCollider2D:
