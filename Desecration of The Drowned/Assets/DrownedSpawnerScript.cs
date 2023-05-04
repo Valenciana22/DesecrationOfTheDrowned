@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DrownedSpawnerScript : MonoBehaviour
 {
@@ -51,7 +52,8 @@ public class DrownedSpawnerScript : MonoBehaviour
             health -= 5;
              //health -= GetComponent<SoldierScript>().damage; //Damage will be able to scale this way 
              if(health <= 0){
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                SceneManager.LoadScene("Explore");
              }
 
             //SceneManager.LoadScene("MainMenu");
