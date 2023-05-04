@@ -33,7 +33,7 @@ public class SoldierScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.R)){
+        if(Input.GetKeyDown(KeyCode.R)){
             //Shoots a bullet horizontally to the right
             //Debug.Log("You are trying to shoot");
             //GenerateBullets();
