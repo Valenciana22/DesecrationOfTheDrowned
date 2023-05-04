@@ -37,6 +37,7 @@ public class SoldierScript : MonoBehaviour
             //Shoots a bullet horizontally to the right
             //Debug.Log("You are trying to shoot");
             //GenerateBullets();
+            GetComponent<AudioSource>().pitch = Random.Range(0.5f, 1f);
             GetComponent<AudioSource>().Play();
             Vector2 currentPosition = new Vector2(transform.position.x + 1,transform.position.y);
             GameObject newBullet = Instantiate(BulletPrefab,currentPosition,Quaternion.identity);
