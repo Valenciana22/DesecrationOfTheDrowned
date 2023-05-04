@@ -18,8 +18,17 @@ public class FoodScript : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        Destroy(gameObject);
-        SceneManager.LoadScene("SampleScene");
+        
+        StartCoroutine(startCombat());
+        
 
     }
+
+     IEnumerator startCombat()
+ {
+     GetComponent<AudioSource>().Play();
+     yield return new WaitForSeconds(1);
+     Destroy(gameObject);
+     SceneManager.LoadScene("SampleScene");
+ }
 }
